@@ -1,7 +1,8 @@
 
 USBFCD.py
 
-this detects when a file is copied to a USB drive and outputs the relevant events to the Windows Event Log
+
+currently there are no  methods within windows to detect or logs files transfered to external stroage devices, this script detects when a file is copied to a USB drive and outputs the relevant events to the Windows Event Log
 
 Checks specifically for files that have been copied to a USB drive. It checks the modified time of each file in the USB drive and compares it to the current time to see if the file was recently modified (within the last 15 seconds).
 
