@@ -9,6 +9,8 @@ def detect_usb_drive_file_copy():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s', handlers=[logging.FileHandler('usb_copy_log.txt'), logging.StreamHandler()])
     logging.info('Starting USB File Copy Detection')
    
+    EXTENTIONS = (".xlsx", ".xlsm", ".xltx", ".xltm", ".DOCX", ".env", ".pem", "credentials.json", ".zip", ".tar", ".gz", ".tgz", ".rar", ".7z", ".pdf")
+
     drive_list = []
     drives = win32api.GetLogicalDriveStrings()
     drives = drives.split('\000')[:-1]
@@ -22,7 +24,8 @@ def detect_usb_drive_file_copy():
             if os.path.exists(drive):
                 for dirpath, dirs, files in os.walk(drive):
                     for file in files:
-                        if file.endswith('.docx') or file.endswith('.xlsx'):
+                        #if file.endswith('.docx') or file.endswith('.xlsx'):
+                        if file.endswith(EXTENTIONS):
                             file_path = os.path.join(dirpath, file)
                             modified_time = os.path.getmtime(file_path)
                             event_id = 100
