@@ -27,12 +27,12 @@ def detect_usb_drive_file_copy():
                             modified_time = os.path.getmtime(file_path)
                             event_id = 100
                             event_log_type = 'Information'
-                            event_source = 'File Copy Detection'
+                            event_source = 'USB File Copy Detection'
                             event_desc = f'File {file} copied to USB drive {drive} at {time.strftime("%c")}'
                             if modified_time > time.time() - 10:
                                 win32evtlogutil.ReportEvent(event_source, event_id, event_log_type, event_desc)
                                 logging.info(event_desc)
-        time.sleep(10)
+        time.sleep(15)
 
 if __name__ == '__main__':
     detect_usb_drive_file_copy()
