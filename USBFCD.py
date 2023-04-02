@@ -7,7 +7,7 @@ import win32file
 
 def detect_usb_drive_file_copy():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s', handlers=[logging.FileHandler('usb_copy_log.txt'), logging.StreamHandler()])
-    logging.info('Starting USB file copy detection...')
+    logging.info('Starting USB File Copy Detection')
    
     drive_list = []
     drives = win32api.GetLogicalDriveStrings()
